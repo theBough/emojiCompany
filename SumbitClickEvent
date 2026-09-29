@@ -10,11 +10,19 @@ Public Class Form1
             tbLast.BackColor = Color.Red
             Return True
         End If
+        tbLast.BackColor = Color.White
 
         If (tbFirst.Text = "") Then
             tbLast.BackColor = Color.Red
             Return True
         End If
+        tbFirst.BackColor = Color.White
+
+        If (tbPhone.Text = "") Then
+            tbLast.BackColor = Color.Red
+            Return True
+        End If
+        tbPhone.BackColor = Color.White
         Return False
     End Function
     Private Sub btnWrite_Click(sender As Object, e As EventArgs) Handles btnWrite.Click
