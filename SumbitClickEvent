@@ -1,12 +1,44 @@
- Private Sub btnWrite_Click(sender As Object, e As EventArgs) Handles btnWrite.Click
-     Dim fw As System.IO.StreamWriter
-     fw = My.Computer.FileSystem.OpenTextFileWriter(filePath, True)
-     employeeCount += 1
-     Dim employeeCountOutput As String = employeeCount.ToString("D4")
-     fw.Write("em_" & employeeCountOutput & ", ")
-     fw.Write(tbName.Text & ", ")
-     fw.Write(tbLast.Text & ", ")
-     fw.Write(tbPhone.Text & vbCr)
-     fw.Close()
-     ClearForm()
- End Sub
+Imports System.IO
+Imports System.Text
+Public Class Form1
+#Region "Global Variables"
+    Dim filePath As String = "C:\Users\cboughen\computer science\test.txt"
+    Dim employeeCount As Integer = 0
+#End Region
+    Private Function checkForEmptyTextBoxes() As Boolean
+        If (tbLast.Text = "") Then
+            tbLast.BackColor = Color.Red
+            Return True
+        End If
+
+        If (tbFirst.Text = "") Then
+            tbLast.BackColor = Color.Red
+            Return True
+        End If
+        Return False
+    End Function
+    Private Sub btnWrite_Click(sender As Object, e As EventArgs) Handles btnWrite.Click
+        If (checkForEmptyTextBoxes()) Then
+            MessageBox.Show("Please fix your mistake")
+            Exit Sub
+        End If
+        Dim fw As System.IO.StreamWriter
+        fw = My.Computer.FileSystem.OpenTextFileWriter(filePath, True)
+        employeeCount += 1
+        Dim employeeCountOutput As String = employeeCount.ToString("D4")
+        fw.Write("em_" & employeeCountOutput & ", ")
+        fw.Write(tbFirst.Text & ", ")
+        fw.Write(tbLast.Text & ", ")
+        fw.Write(tbPhone.Text & vbCr)
+        fw.Close()
+        ClearForm()
+    End Sub
+
+    Public Sub ClearForm()
+        'this sub will empty all the textBoxes
+        tbLast.Text = ""
+        tbFirst.Text = ""
+        tbPhone.Text = ""
+    End Sub
+
+End Class
