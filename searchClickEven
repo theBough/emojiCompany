@@ -1,0 +1,19 @@
+
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        'Check to see if the file has been created
+        If (File.Exists(filePath)) Then
+            'grad all the text and save it to a variable.
+            Dim entireFile As String = File.ReadAllText(filePath)
+            If (entireFile.Contains(tbFirstNameSearch.Text)) Then
+                MsgBox("Foud em")
+            Else
+                MsgBox("Sorry, can't find that employee", MsgBoxStyle.OkOnly, "Can't Find")
+            End If
+
+        Else
+                MsgBox("File Does Not Exist", MsgBoxStyle.Exclamation, "STOP")
+            MessageBox.Show("WHat the?")
+        End If
+    End Sub
+End Class
