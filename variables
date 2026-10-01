@@ -1,0 +1,4 @@
+#Region "Global Variables"
+    Dim filePath As String = "C:\Users\cboughen\computer science\test.txt"
+    Dim employeeCount As Integer = 0
+#End Region
