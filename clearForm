@@ -1,0 +1,6 @@
+ Public Sub ClearForm()
+     'this sub will empty all the textBoxes
+     tbLast.Text = ""
+     tbFirst.Text = ""
+     tbPhone.Text = ""
+ End Sub
