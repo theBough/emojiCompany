@@ -1,21 +1,21 @@
- Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-     'Check to see if the file has been created
-     If (File.Exists(filePath)) Then
-         'grad all the text and save it to a variable.
-         Dim allTheText As String = File.ReadAllText(filePath)
-         Dim delimiters() As Char = {",", vbCr}
-         'spliting the text into an array
-         Dim allTheInformation() As String = allTheText.Split(delimiters)
+Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+    'Check to see if the file has been created
+    If (File.Exists(filePath)) Then
+        'grad all the text and save it to a variable.
+        Dim allTheText As String = File.ReadAllText(filePath)
+        Dim delimiters() As Char = {",", vbCr}
+        'spliting the text into an array
+        Dim allTheInformation() As String = allTheText.Split(delimiters)
 
-         If (allTheText.Contains(tbFirstNameSearch.Text)) Then
-             Dim index As Integer = Array.IndexOf(allTheInformation, tbFirstNameSearch.Text)
-             test.Text = index
-         Else
-             MsgBox("Sorry, can't find that employee", MsgBoxStyle.OkOnly, "Can't Find")
-         End If
+        If (allTheText.Contains(tbFirstNameSearch.Text)) Then
+            Dim index As Integer = Array.IndexOf(allTheInformation, tbFirstNameSearch.Text)
+            MsgBox("Their Employee Number is: " & allTheInformation(index - 1))
+        Else
+            MsgBox("Sorry, can't find that employee", MsgBoxStyle.OkOnly, "Can't Find")
+        End If
 
-     Else
-             MsgBox("File Does Not Exist", MsgBoxStyle.Exclamation, "STOP")
-         MessageBox.Show("WHat the?")
-     End If
- End Sub
+    Else
+            MsgBox("File Does Not Exist", MsgBoxStyle.Exclamation, "STOP")
+        MessageBox.Show("WHat the?")
+    End If
+End Sub
