@@ -1,0 +1,26 @@
+ Private Function checkForEmptyTextBoxes() As Boolean
+     If (tbLast.Text = "") Then
+         tbLast.BackColor = Color.Red
+         Return True
+     End If
+     tbLast.BackColor = Color.White
+
+     If (tbFirst.Text = "") Then
+         tbFirst.BackColor = Color.Red
+         Return True
+     End If
+     tbFirst.BackColor = Color.White
+
+     If (tbPhone.Text = "") Then
+         tbPhone.BackColor = Color.Red
+         Return True
+     End If
+     tbPhone.BackColor = Color.White
+     If (tbWage.Text = "") Then
+         tbWage.BackColor = Color.Red
+         Return True
+     End If
+     tbWage.BackColor = Color.Red
+
+     Return False
+End Function
