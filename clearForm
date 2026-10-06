@@ -3,4 +3,5 @@
      tbLast.Text = ""
      tbFirst.Text = ""
      tbPhone.Text = ""
+     tbWage.Text = ""
  End Sub
