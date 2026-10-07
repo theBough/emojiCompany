@@ -15,4 +15,7 @@ Private Sub btnWrite_Click(sender As Object, e As EventArgs) Handles btnWrite.Cl
     fw.Write(tbWage.Text & vbCr)
     fw.Close()
     ClearForm()
+    Dim experiment_2() As String = File.ReadAllLines(filePath)
+    experiment_2(0) = employeeCount
+    File.WriteAllLines(filePath, experiment_2)
 End Sub
